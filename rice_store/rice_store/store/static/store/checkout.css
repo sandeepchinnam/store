@@ -1,0 +1,169 @@
+/* store/static/store/checkout.css */
+
+/* Basic resets and body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Navigation bar styling */
+nav {
+    background-color: #4CAF50;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0.5rem 1rem;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main heading styling */
+h1 {
+    text-align: center;
+    margin: 2rem 0;
+    color: #4CAF50;
+}
+
+/* Form styling */
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Form fields and labels */
+form h2 {
+    margin-top: 1.5rem;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+form .form-field {
+    margin-bottom: 1rem;
+}
+
+form .form-field label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+form .form-field input,
+form .form-field select,
+form .form-field textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form .form-field input:focus,
+form .form-field select:focus,
+form .form-field textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Cart items styling */
+.cart-items {
+    margin-top: 2rem;
+}
+
+.cart-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cart-item h3 {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.cart-item p {
+    margin: 0.5rem 0;
+}
+
+/* Form button styling */
+form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+    display: block;
+    width: 100%;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Styles */
+
+/* Tablets and smaller devices */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        margin: 0.5rem 0;
+    }
+
+    form {
+        padding: 1rem;
+    }
+
+    .cart-item {
+        padding: 0.75rem;
+    }
+
+    .cart-item h3 {
+        font-size: 1rem;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+    form .form-field input,
+    form .form-field select,
+    form .form-field textarea {
+        font-size: 0.9rem;
+    }
+
+    form button {
+        width: 100%;
+    }
+    nav {
+        flex-direction: column;
+    }
+    
+    nav a {
+        margin: 0.5rem 0;
+    }
+}
+

@@ -1,0 +1,37 @@
+<!-- store/templates/store/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rice Store</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'store/styles.css' %}">
+    </head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/cart/">Cart</a>
+    </nav>
+    <h1>Our Products</h1>
+    <div class="rice-items">
+        {% for rice in rice_items %}
+            <div class="rice-item">
+                <h2>{{ rice.brand }} BRAND</h2>
+                <p>{{ rice.description }}</p>
+                <p>PRICE: ₹{{ rice.price }}</p>
+                <p>TYPE: {{ rice.name }}</p>
+                {% if rice.image %}
+                    <img src="{{ rice.image.url }}" alt="{{ rice.name }}">
+                {% else %}
+                    <p>No image available</p>
+                {% endif %}
+                <form action="{% url 'add_to_cart' rice.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Add to Cart</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

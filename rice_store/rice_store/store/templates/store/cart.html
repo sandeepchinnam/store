@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Your Cart</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'store/cart.css' %}">
+    </head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/cart/">Cart</a>
+    </nav>
+    <h1>Your Cart</h1>
+    <div class="cart-items">
+        <form action="{% url 'update_cart' %}" method="post">
+            {% csrf_token %}
+            {% for item in cart_items %}
+                <div class="cart-item">
+                    <h2>{{ item.rice.name }}</h2>
+                    <p>Price: ${{ item.rice.price }}</p>
+                    <p>
+                        Quantity: 
+                        <input type="number" name="quantity_{{ item.id }}" value="{{ item.quantity }}" min="1">
+                    </p>
+                    <p>Total Price: ${{ item.total_price }}</p>
+                </div>
+            {% endfor %}
+            <button type="submit">Update Cart</button>
+
+        </form>
+        <h2>Total Price: ${{ total_price }}</h2>
+    </div>
+    
+    <a href="{% url 'checkout' %}"><button type="button">Proceed to Checkout</button></a>
+</body>
+</html>

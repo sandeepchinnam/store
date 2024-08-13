@@ -1,0 +1,201 @@
+/* store/static/store/styles.css */
+
+/* Basic resets and body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Navigation bar styling */
+nav {
+    background-color: #4CAF50;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0.5rem 1rem;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main heading styling */
+h1 {
+    text-align: center;
+    margin: 2rem 0;
+    color: #4CAF50;
+}
+
+/* Container for rice items */
+.rice-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0 1rem;
+}
+
+/* Individual rice item styling */
+.rice-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rice-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.rice-item img {
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+.rice-item h2 {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.rice-item p {
+    margin: 0.5rem 0;
+}
+
+.rice-item form {
+    margin-top: 1rem;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Cart page styling */
+.cart-items {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item {
+    background-color: #fafafa;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cart-item h2 {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.cart-item p {
+    margin: 0.5rem 0;
+}
+
+form {
+    margin-bottom: 2rem;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+a button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+    display: block;
+    margin: 2rem auto 0;
+}
+
+a button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Styles */
+
+/* Tablets and smaller devices */
+@media (max-width: 768px) {
+    .rice-items {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .rice-item {
+        max-width: 90%;
+    }
+
+    .cart-items {
+        padding: 1rem;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+    }
+
+    nav a {
+        margin: 0.5rem 0;
+    }
+
+    .rice-item {
+        max-width: 100%;
+    }
+
+    form button {
+        width: 100%;
+    }
+
+    a button {
+        width: 100%;
+    }
+}

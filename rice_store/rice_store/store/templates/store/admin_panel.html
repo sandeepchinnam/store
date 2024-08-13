@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .submit-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+        .delete-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .delete-button:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin Panel</h1>
+    <h2>Orders</h2>
+
+    <form method="post" action="{% url 'update_delivery_status' %}">
+        {% csrf_token %}
+        {% regroup orders by name as grouped_orders %}
+        {% for group in grouped_orders %}
+            <h3>Customer: {{ group.grouper }}</h3>
+            <table border="1" style="width: 100%; margin-bottom: 20px;">
+                <tr>
+                    <th>Rice</th>
+                    <th>Quantity</th>
+                    <th>Created At</th>
+                    <th>Address</th>
+                    <th>Mobile Number</th>
+                    <th>Delivery</th>
+                    <th>Actions</th>
+                </tr>
+                {% for order in group.list %}
+                    <tr>
+                        <td>{{ order.rice.name }}</td>
+                        <td>{{ order.quantity }}</td>
+                        <td>{{ order.created_at }}</td>
+                        <td>{{ order.address }}</td>
+                        <td>{{ order.mobile_number }}</td>
+                        <td>
+                            <input type="checkbox" name="delivery_status" value="{{ order.id }}">
+                        </td>
+                        <td>
+                            <button type="submit" name="delete_order" value="{{ order.id }}" class="delete-button">Delete</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endfor %}
+        <!-- <button type="submit" class="submit-button">Mark as OK for Delivery</button> -->
+    </form>
+</body>
+</html>

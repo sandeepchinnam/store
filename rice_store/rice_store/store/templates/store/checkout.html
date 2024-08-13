@@ -1,0 +1,37 @@
+<!-- store/templates/store/checkout.html -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Checkout</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'store/checkout.css' %}">
+    </head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/cart/">Cart</a>
+    </nav>
+    <h1>Checkout</h1>
+
+    <form action="{% url 'checkout' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <h2>Your Cart</h2>
+        <div class="cart-items">
+            {% for item in cart_items %}
+                <div class="cart-item">
+                    <h3>{{ item.rice.name }}</h3>
+                    <p>Quantity: {{ item.quantity }}</p>
+                    <p>Price: ${{ item.total_price }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        
+        <h2>Total Price: ${{ total_price }}</h2>
+        <button type="submit">Confirm Purchase</button>
+    </form>
+</body>
+</html>
